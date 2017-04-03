@@ -14,11 +14,26 @@ package cs445program1;
 public class Point {
     public float x;
     public float y;
-/**
- * A Point constructor that initializes Point object with x and y.
- */
+
+    /**
+     * A Point constructor that initializes Point object with x and y.
+     */
     public Point(float x, float y) {
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * A Point constructor that initializes Point object with a String array of
+     * x and y.
+     */
+    public Point(String[] points) {
+        this.x = Float.parseFloat(points[0]);
+        this.y = Float.parseFloat(points[1]);
+    }
+
+    @Override
+    public String toString() {
+        return "x = " + x + ", y = " + y;
     }
 }
