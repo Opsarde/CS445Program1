@@ -29,8 +29,8 @@ public class Line implements Shape{
      */
     @Override
     public void draw() {
-        float dx = p2.x - p1.x;
-        float dy = p2.y - p1.y;
+        float dx = Math.abs(p2.x - p1.x);
+        float dy = Math.abs(p2.y - p1.y);
         float incrementRight = 2 * dy;
         float incrementUpRight = 2 * (dy - dx);
         float d = 2 * dy - dx;
@@ -38,19 +38,24 @@ public class Line implements Shape{
         float y = p1.y;
         glBegin(GL_POINTS);
         glVertex2f(x, y);
-        while (x < p2.x) {
+        while ((x < p2.x && p2.x - p1.x >= 0) ||
+                (x > p2.x && p2.x - p1.x < 0)) {
            if (d > 0) {
                d += incrementUpRight;
-               ++x;
-               ++y;
+               if (p2.x - p1.x >= 0) ++x; else --x;
+               if (p2.y - p1.y >= 0) ++y; else --y;
            } 
            else {
                d += incrementRight;
-               ++x;
+               if (p2.x - p1.x >= 0) ++x; else --x;
            }
            glVertex2f(x, y);
         }
         glEnd();
     }
-    
+
+    @Override
+    public String toString() {
+        return "p1: " + p1.toString() + "; p2: " + p2.toString();
+    }
 }
