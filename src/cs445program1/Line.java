@@ -5,6 +5,8 @@
  */
 package cs445program1;
 
+import static org.lwjgl.opengl.GL11.*;
+
 
 /**
  * This class represents a line in a coordinate system
@@ -27,16 +29,28 @@ public class Line implements Shape{
      */
     @Override
     public void draw() {
-        float dx, dy;
-        float incrementRight, incrementUpRight;
-        float d;
+        float dx = p2.x - p1.x;
+        float dy = p2.y - p1.y;
+        float incrementRight = 2 * dy;
+        float incrementUpRight = 2 * (dy - dx);
+        float d = 2 * dy - dx;
         float x = p1.x; 
         float y = p1.y;
-
+        glBegin(GL_POINTS);
+        glVertex2f(x, y);
         while (x < p2.x) {
-            
+           if (d > 0) {
+               d += incrementUpRight;
+               ++x;
+               ++y;
+           } 
+           else {
+               d += incrementRight;
+               ++x;
+           }
+           glVertex2f(x, y);
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        glEnd();
     }
     
 }
