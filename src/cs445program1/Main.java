@@ -86,11 +86,13 @@ public class Main {
                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
                glLoadIdentity();
                glColor3f(1.0f, 1.0f, 0.0f);
-               glPointSize(10);
-               glBegin(GL_POINTS); 
-                 glVertex2f(350.0f, 150.0f);
-                 glVertex2f(50.0f, 50.0f);
-               glEnd();
+               Shape line1 = new Line(new Point(50, 50), new Point(230, 150));
+               line1.draw();
+               //glPointSize(10);
+               //glBegin(GL_POINTS); 
+               //  glVertex2f(350.0f, 150.0f);
+               //  glVertex2f(50.0f, 50.0f);
+               //glEnd();
                Display.update();
                Display.sync(60);
            } catch (Exception e) {
