@@ -10,7 +10,7 @@ import org.lwjgl.opengl.DisplayMode;
 import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.input.Keyboard;
 
-import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author shun
@@ -80,23 +80,15 @@ public class Main {
      * PURPOSE: render every frame until window is closed or press escape key
      */
     private void render() {
-        DataReader reader = new DataReader("lines.txt");
-        ArrayList<Shape> list = reader.getData();
+        DataReader reader = new DataReader("coordinates.txt");
+        List<Shape> list = reader.getData();
         while (!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
             try {
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
                 glLoadIdentity();
-                glColor3f(1.0f, 1.0f, 0.0f);
-                //Shape line1 = new Line(new Point(50, 50), new Point(230, 150));
                 for (Shape s: list) {
-                    System.out.println(s.toString());
                     s.draw();
                 }
-                //glPointSize(10);
-                //glBegin(GL_POINTS); 
-                //  glVertex2f(350.0f, 150.0f);
-                //  glVertex2f(50.0f, 50.0f);
-                //glEnd();
                 Display.update();
                 Display.sync(60);
             } catch (Exception e) {
