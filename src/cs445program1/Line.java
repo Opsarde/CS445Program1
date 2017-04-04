@@ -25,10 +25,12 @@ public class Line implements Shape{
         this.p2 = p2;
     }
     /**
+     * METHOD: draw
      * PURPOSE: draw a line by using the line algorithm
      */
     @Override
     public void draw() {
+        glColor3f(255.0f, 0.0f, 0.0f);
         float dx = Math.abs(p2.x - p1.x);
         float dy = Math.abs(p2.y - p1.y);
         float incrementRight = 2 * dy;
