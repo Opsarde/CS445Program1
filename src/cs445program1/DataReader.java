@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package cs445program1;
+
+import java.util.List;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -14,8 +16,8 @@ import java.io.*;
  * @author Shun Lu
  */
 public class DataReader {
-    private ArrayList<Shape> list;
-
+    //private ArrayList<Shape> list;
+    private List<Shape> list;
     /**
      * This constructor constructs data read from txt
      */
@@ -32,7 +34,22 @@ public class DataReader {
                     list.add(new Line(p1, p2));
                 }
                 // TODO: condition for ellipse and circle
+                else if (data[0].equals("c")) {
+                    Point center = new Point(data[1].split(","));
+                    float radius = Float.parseFloat(data[2]);
+                    list.add(new Circle(center, radius));
+                }
+                else if (data[0].equals("e")) {
+                    Point center = new Point(data[1].split(","));
+                    String[] r = data[2].split(",");
+                    float rx = Float.parseFloat(r[0]);
+                    float ry = Float.parseFloat(r[1]);
+                    list.add(new Ellipse(center, rx, ry));
+                }
+                else 
+                    System.out.println("Provided shape is not provided. PASS.");
             }
+            reader.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -42,7 +59,7 @@ public class DataReader {
      * METHOD: getData
      * PURPOSE: get list from DataReader object
      */
-    public ArrayList<Shape> getData() {
+    public List<Shape> getData() {
         return list;
     }
 }
