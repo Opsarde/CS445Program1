@@ -40,20 +40,25 @@ public class Line implements Shape{
         float y = p1.y;
         glBegin(GL_POINTS);
         glVertex2f(x, y);
-        while ((x < p2.x && p2.x - p1.x >= 0) ||
-                (x > p2.x && p2.x - p1.x < 0)) {
-           if (d > 0) {
-               d += incrementUpRight;
-               if (p2.x - p1.x >= 0) ++x; else --x;
-               if (p2.y - p1.y >= 0) ++y; else --y;
-           } 
-           else {
-               d += incrementRight;
-               if (p2.x - p1.x >= 0) ++x; else --x;
-           }
-           glVertex2f(x, y);
+        if (dx == 0) {
+            drawVertical();
         }
-        glEnd();
+        else {
+            while ((x < p2.x && p2.x - p1.x >= 0) ||
+                    (x > p2.x && p2.x - p1.x < 0)) {
+               if (d > 0) {
+                   d += incrementUpRight;
+                   if (p2.x - p1.x >= 0) ++x; else --x;
+                   if (p2.y - p1.y >= 0) ++y; else --y;
+               } 
+               else {
+                   d += incrementRight;
+                   if (p2.x - p1.x >= 0) ++x; else --x;
+               }
+               glVertex2f(x, y);
+            }
+            glEnd();
+        }
     }
 
     /**
@@ -63,5 +68,28 @@ public class Line implements Shape{
     @Override
     public String toString() {
         return "p1: " + p1.toString() + "; p2: " + p2.toString();
+    }
+
+    /**
+     * METHOD: drawVertical
+     * PURPOSE: draw a vertical line
+     */
+    private void drawVertical() {
+        float begin, end; 
+        if (p1.y <= p2.y) {
+            begin = p1.y;
+            end = p2.y;
+        }
+        else {
+            begin = p2.y;
+            end = p1.y;
+        }
+        glBegin(GL_POINTS);
+        glVertex2f(p1.x, begin);
+        while (begin < end) {
+            ++begin;
+            glVertex2f(p1.x, begin);
+        }
+        glEnd();
     }
 }
