@@ -13,9 +13,10 @@ import org.lwjgl.input.Keyboard;
 import java.util.List;
 /**
  *
- * @author shun
+ * @author Shun Lu
  */
 public class Main {
+    String filePath = "src/cs445program1/coordinates.txt";
 
     /**
      * @param args the command line arguments
@@ -23,6 +24,8 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Main main = new Main();
+        if (args.length == 1)
+           main.filePath = args[0]; 
         main.start();
     }
     
@@ -80,7 +83,7 @@ public class Main {
      * PURPOSE: render every frame until window is closed or press escape key
      */
     private void render() {
-        DataReader reader = new DataReader("src/cs445program1/coordinates.txt");
+        DataReader reader = new DataReader(filePath);
         List<Shape> list = reader.getData();
         while (!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
             try {
