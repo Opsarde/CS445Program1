@@ -6,9 +6,12 @@
 package cs445program1;
 
 /**
- *
- * @author shun7817
+ * INTERFACE: Shape
+ * PURPOSE: each shape should have a draw and toString method
+ * 
+ * @author Shun Lu
  */
 public interface Shape {
     public void draw(); 
+    public String toString();
 }

@@ -80,7 +80,7 @@ public class Main {
      * PURPOSE: render every frame until window is closed or press escape key
      */
     private void render() {
-        DataReader reader = new DataReader("coordinates.txt");
+        DataReader reader = new DataReader("src/cs445program1/coordinates.txt");
         List<Shape> list = reader.getData();
         while (!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
             try {

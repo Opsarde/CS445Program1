@@ -32,6 +32,10 @@ public class Point {
         this.y = Float.parseFloat(points[1]);
     }
 
+    /**
+     * METHOD: toString
+     * PURPOSE: print some useful information about a point
+     */
     @Override
     public String toString() {
         return "x = " + x + ", y = " + y;

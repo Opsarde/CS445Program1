@@ -18,6 +18,7 @@ import java.io.*;
 public class DataReader {
     //private ArrayList<Shape> list;
     private List<Shape> list;
+
     /**
      * This constructor constructs data read from txt
      */

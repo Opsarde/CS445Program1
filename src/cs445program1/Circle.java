@@ -41,4 +41,13 @@ public class Circle implements Shape{
             theta += (Math.PI / (radius * 180.0f));
         }
     }
+
+    /**
+     * METHOD: toString
+     * PURPOSE: print some useful infommation about a circle
+     */
+    @Override
+    public String toString() {
+        return "center: " + this.center + "; radius: " + this.radius;
+    }
 }

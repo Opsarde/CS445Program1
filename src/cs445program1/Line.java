@@ -56,6 +56,10 @@ public class Line implements Shape{
         glEnd();
     }
 
+    /**
+     * METHOD: toString
+     * PURPOSE: print some useful information about a line
+     */
     @Override
     public String toString() {
         return "p1: " + p1.toString() + "; p2: " + p2.toString();

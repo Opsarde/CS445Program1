@@ -44,4 +44,13 @@ public class Ellipse implements Shape{
             theta += (Math.PI / ((rx + ry) * 180.0f));
         }
     }
+
+    /**
+     * METHOD: toString
+     * PURPOSE: print some useful information about a ellipse
+     */
+    @Override
+    public String toString() {
+        return "center: " + this.center + "; rx: " + this.rx + ", ry: " + this.ry;
+    }
 }
