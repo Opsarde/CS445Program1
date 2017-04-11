@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************
+ *     file: Ellipse.java
+ *     author: Shun Lu
+ *     class: CS 445 - Computer Graphics
+ * 
+ *     assignment: program 1
+ *     last modified: 4/10/2017
+ * 
+ *     purpose: This program reads coordinates.txt and draw line,
+ *     circle, and ellipse on a window using OpenGL
+ * 
+ *************************************************************/
 package cs445program1;
 
 import static org.lwjgl.opengl.GL11.*;

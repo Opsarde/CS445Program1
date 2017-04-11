@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************
+ *     file: Main.java
+ *     author: Shun Lu
+ *     class: CS 445 - Computer Graphics
+ * 
+ *     assignment: program 1
+ *     last modified: 4/10/2017
+ * 
+ *     purpose: This program reads coordinates.txt and draw line,
+ *     circle, and ellipse on a window using OpenGL
+ * 
+ *************************************************************/
 package cs445program1;
 
 import org.lwjgl.opengl.Display;
@@ -11,23 +18,13 @@ import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
+
 /**
  *
  * @author Shun Lu
  */
 public class Main {
     String filePath = "src/cs445program1/coordinates.txt";
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Main main = new Main();
-        if (args.length == 1)
-           main.filePath = args[0]; 
-        main.start();
-    }
     
     /**
      * METHOD: start
@@ -44,7 +41,6 @@ public class Main {
             e.printStackTrace();
         }
     }
-
     
     /**
      * METHOD: createWindow
@@ -101,4 +97,16 @@ public class Main {
         Keyboard.destroy();
     }
     
+    /**
+     * METHOD: main
+     * PURPOSE: run the OpenGL program
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Main main = new Main();
+        if (args.length == 1)
+           main.filePath = args[0]; 
+        main.start();
+    }
 }
